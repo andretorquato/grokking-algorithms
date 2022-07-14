@@ -3,12 +3,9 @@ const maxValue = (arr) => {
 	if(arr.length == 1) {
 		return arr[0];
 	} else {
-		const lastMaxValue = arr[arr.length - 1];
+		max = arr[arr.length - 1];
 		arr.pop();
-		const currentMaxValue = maxValue(arr);
-		if(lastMaxValue > max) max = lastMaxValue;
-		if(currentMaxValue > max) max = currentMaxValue;
-		return `O maior valor encontrado foi: ` + max;
+		return maxValue(arr) > max ? maxValue(arr) : max;
 	}
 }
 
